@@ -159,11 +159,10 @@ GEMINI_API_KEY=your_gemini_api_key
 
 Create a `.env` file in the **frontend root directory** and add the following variables:
 
-```env
 VITE_API_BASE_URL=https://your-backend-url/api
 
 
-## ▶️ Run Project Locally
+##  Run Project Locally
 
 ### Backend
 
