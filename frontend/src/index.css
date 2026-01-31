@@ -1,0 +1,213 @@
+/* Mental Health Support App - Calming Dark Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Dark, calming background */
+    --background: 220 20% 6%;
+    --foreground: 210 40% 96%;
+
+    /* Cards with subtle elevation */
+    --card: 220 18% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Primary - Soft Teal (calming, mental health friendly) */
+    --primary: 168 76% 42%;
+    --primary-foreground: 220 20% 6%;
+
+    /* Secondary - Soft Slate Blue */
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 210 40% 90%;
+
+    /* Muted - Soft grays for less emphasis */
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Accent - Gentle mint for highlights */
+    --accent: 160 60% 45%;
+    --accent-foreground: 220 20% 6%;
+
+    /* Destructive - Soft coral (not harsh red) */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Warning - Soft amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 20% 6%;
+
+    /* Success - Calm green */
+    --success: 142 70% 45%;
+    --success-foreground: 220 20% 6%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 14%;
+    --ring: 168 76% 42%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(168 76% 42%) 0%, hsl(175 65% 48%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 18% 10%) 0%, hsl(220 20% 12%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(220 20% 6%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 20% 0% / 0.4);
+    --shadow-md: 0 8px 24px -4px hsl(220 20% 0% / 0.5);
+    --shadow-lg: 0 16px 48px -8px hsl(220 20% 0% / 0.6);
+    --shadow-glow: 0 0 40px -10px hsl(168 76% 42% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 168 76% 42%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 18% 14%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 168 76% 42%;
+
+    /* Mood colors */
+    --mood-happy: 48 96% 53%;
+    --mood-calm: 168 76% 42%;
+    --mood-neutral: 220 15% 50%;
+    --mood-sad: 215 80% 60%;
+    --mood-anxious: 0 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Calming card with subtle glow */
+  .calm-card {
+    @apply bg-card rounded-xl border border-border p-6;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .calm-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Input focus styles */
+  .calm-input {
+    @apply bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary;
+    transition: all 0.2s ease;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium rounded-lg px-6 py-3;
+    @apply hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/50;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium rounded-lg px-6 py-3;
+    @apply hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-primary/50;
+    transition: all 0.2s ease;
+  }
+
+  /* Mood button styles */
+  .mood-btn {
+    @apply flex flex-col items-center justify-center p-4 rounded-xl border-2 border-border;
+    @apply hover:border-primary/50 hover:bg-secondary/50;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50;
+    transition: all 0.2s ease;
+  }
+
+  .mood-btn.selected {
+    @apply border-primary bg-primary/10;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Risk level badges */
+  .risk-low {
+    @apply bg-success/20 text-success border border-success/30;
+  }
+
+  .risk-medium {
+    @apply bg-warning/20 text-warning border border-warning/30;
+  }
+
+  .risk-high {
+    @apply bg-destructive/20 text-destructive border border-destructive/30;
+  }
+
+  /* Disclaimer banner */
+  .disclaimer {
+    @apply bg-warning/10 border border-warning/30 rounded-lg p-4 text-sm text-warning;
+  }
+
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse animation for loading */
+  .pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+}
