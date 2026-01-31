@@ -104,7 +104,9 @@ GEMINI_API_KEY=your_gemini_api_key
 ### Backend
 
 cd backend
+
 npm install
+
 npm run dev
 
 
@@ -113,7 +115,9 @@ npm run dev
 ### Frontend
 
 cd frontend
+
 npm install
+
 npm run dev
 
 
