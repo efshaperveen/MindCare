@@ -16,10 +16,7 @@ api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
-},
- (error) => Promise.reject(error)                            
-                             
- );
+} );
 
 // Handle auth errors
 api.interceptors.response.use(
